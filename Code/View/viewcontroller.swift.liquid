@@ -12,7 +12,7 @@ protocol {{ module_info.name }}ViewControllerProtocol: AnyObject {
   func prepare(with viewModel: {{ module_info.name }}ViewModel)
 }
 
-class {{ module_info.name }}ViewController: UIViewController, {{ module_info.name }}ViewControllerProtocol {
+class {{ module_info.name }}ViewController: UICollectionViewController, {{ module_info.name }}ViewControllerProtocol {
   private struct Constants {
     static let storyboarID = String(describing: {{ module_info.name }}ViewController.self)
   }
