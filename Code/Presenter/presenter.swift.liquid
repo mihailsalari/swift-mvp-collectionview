@@ -1,0 +1,26 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+
+protocol {{ module_info.name }}PresenterProtocol {
+  func present()
+}
+
+class {{ module_info.name }}Presenter: {{ module_info.name }}PresenterProtocol {
+
+  private let view: {{ module_info.name }}ViewControllerProtocol
+
+  init(with view: {{ module_info.name }}ViewControllerProtocol) {
+    self.view = view
+  }
+
+  func present() {
+      // Fetch data or smth else...
+  }
+}

@@ -1,0 +1,38 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+protocol {{ module_info.name }}ViewControllerProtocol: AnyObject {
+  func prepare(with viewModel: {{ module_info.name }}ViewModel)
+}
+
+class {{ module_info.name }}ViewController: UIViewController, {{ module_info.name }}ViewControllerProtocol {
+  private struct Constants {
+    static let storyboarID = String(describing: {{ module_info.name }}ViewController.self)
+  }
+
+  static func buildViewController() -> {{ module_info.name }}ViewController! {
+    let storyboard = UIStoryboard(name: Constants.storyboarID, bundle: .main)
+    return storyboard.instantiateInitialViewController() as? {{ module_info.name }}ViewController
+  }
+
+  private var presenter: {{ module_info.name }}PresenterProtocol?
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view.
+
+    presenter = {{ module_info.name }}Presenter(with: self)
+    presenter?.present()
+  }
+
+  func prepare(with viewModel: {{ module_info.name }}ViewModel) {
+    title = viewModel.title
+  }
+}
